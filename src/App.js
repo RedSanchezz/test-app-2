@@ -7,7 +7,7 @@ function App() {
 
     return (
     <div>
-        {!isShowButtons && <button onClick={()=>setShowButtons(!isShowButtons)}>{buttonContent}</button>}
+        <button onClick={()=>setShowButtons(!isShowButtons)}>{buttonContent}</button>
         {isShowButtons &&
         <div className='buttons-block'>
             <button onClick={()=> {
