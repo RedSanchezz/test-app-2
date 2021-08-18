@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    const [buttonContent, setButtonContent] = useState(1);
+    const [isShowButtons, setShowButtons] = useState(false);
+
+    return (
+    <div>
+        {!isShowButtons && <button onClick={()=>setShowButtons(!isShowButtons)}>{buttonContent}</button>}
+        {isShowButtons &&
+        <div className='buttons-block'>
+            <button onClick={()=> {
+                setButtonContent(1)
+                setShowButtons(false);
+            }}>1</button>
+            <button onClick={()=> {
+                setButtonContent(2)
+                setShowButtons(false);
+            }}>2</button>
+
+            <button onClick={()=>{
+                setButtonContent(3);
+                setShowButtons(false);
+            }}>3</button>
+        </div>}
     </div>
   );
 }
